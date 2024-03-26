@@ -190,8 +190,8 @@ FOREACH(p ${TRITON_TENSORRT_LIB_PATHS})
     set(TRITON_TENSORRT_LDFLAGS ${TRITON_TENSORRT_LDFLAGS} "-L${p}")
 ENDFOREACH(p)
 
-find_library(NVINFER_LIBRARY NAMES nvinfer)
-find_library(NVINFER_PLUGIN_LIBRARY NAMES nvinfer_plugin)
+find_library(NVINFER_LIBRARY NAMES nvinfer HINTS /usr/local/tensorrt/lib)
+find_library(NVINFER_PLUGIN_LIBRARY NAMES nvinfer_plugin HINTS /usr/local/tensorrt/lib)
 target_link_libraries(
   triton-tensorrt-backend
   PRIVATE
